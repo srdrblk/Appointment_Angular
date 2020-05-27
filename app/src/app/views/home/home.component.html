@@ -1,0 +1,28 @@
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Detail</th> 
+        <th scope="col">WithWho</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col"><a routerLink="/appointment/add">Ekle</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <th scope="row">{{appointment.id}}</th>
+    
+        <td>{{appointment.detail}}</td>
+        <td>{{appointment.withWho}}</td>
+        <td>{{appointment.startDate | date:'medium' }}</td>
+        <td>{{appointment.endDate | date:'medium' }}</td>
+        <td>
+          <a (click)="deleteAppointment(appointment.id)" class="text-danger">Delete</a>
+          <a class="nav-item nav-link" routerLink="{{'/appointment/'+appointment.id}}">Edit</a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>

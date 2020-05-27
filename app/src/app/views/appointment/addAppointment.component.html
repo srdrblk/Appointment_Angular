@@ -1,0 +1,41 @@
+<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+        <label for="detail">Detail</label>
+        <input type="text" formControlName="detail" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.detail.errors }" />
+        <div *ngIf="submitted && f.detail.errors" class="invalid-feedback">
+            <div *ngIf="f.detail.errors.required">Detail is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="withWho">With Who</label>
+        <input type="text" formControlName="withWho" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.withWho.errors }" />
+        <div *ngIf="submitted && f.withWho.errors" class="invalid-feedback">
+            <div *ngIf="f.withWho.errors.required">With Who is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input type="datetime-local" formControlName="startDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }" />
+        
+        <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
+            <div *ngIf="f.startDate.errors.required">Start Date is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="endDate">End Date</label>
+        <input type="datetime-local" formControlName="endDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }" />
+        
+        <div *ngIf="submitted && f.endDate.errors" class="invalid-feedback">
+            <div *ngIf="f.endDate.errors.required">Start Date is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+        
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Save
+        </button>
+    </div>
+</form>
